@@ -35,10 +35,16 @@ int main()
 		boss.signForm(robo);
 		boss.signForm(pardon);
 
+		std::cout<< "\n=== Intern tries to execute shrub===\n";
+		intern.executeForm(shrub);
+
 		std::cout << "\n=== Boss executes all ===\n";
 		boss.executeForm(shrub);
+		std::cout << "\n\n";
 		boss.executeForm(robo);
+		std::cout << "\n\n";
 		boss.executeForm(pardon);
+		std::cout << "\n\n";
 	}
 	catch (std::exception &e)
 	{
