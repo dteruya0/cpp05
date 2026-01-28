@@ -6,7 +6,7 @@
 /*   By: dteruya <dteruya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 17:33:27 by dteruya           #+#    #+#             */
-/*   Updated: 2026/01/26 15:50:01 by dteruya          ###   ########.fr       */
+/*   Updated: 2026/01/28 14:15:19 by dteruya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main()
 {
-	std::cout << "===== Teste 1: criação válida =====" << std::endl;
+	std::cout << "===== Test 1: valid creation =====" << std::endl;
 	try
 	{
 		Bureaucrat a("Alice", 42);
@@ -25,7 +25,7 @@ int main()
 		std::cout << e.what() << std::endl;
 	}
 
-	std::cout << "\n===== Teste 2: grade muito alta =====" << std::endl;
+	std::cout << "\n===== Test 2: grade too high =====" << std::endl;
 	try
 	{
 		Bureaucrat b("Bob", 0);
@@ -36,7 +36,7 @@ int main()
 		std::cout << e.what() << std::endl;
 	}
 
-	std::cout << "\n===== Teste 3: grade muito baixa =====" << std::endl;
+	std::cout << "\n===== Test 3: grade too low =====" << std::endl;
 	try
 	{
 		Bureaucrat c("Charlie", 151);
@@ -47,35 +47,36 @@ int main()
 		std::cout << e.what() << std::endl;
 	}
 
-	std::cout << "\n===== Teste 4: increment / decrement =====" << std::endl;
+	std::cout << "\n===== Test 4: increment / decrement =====" << std::endl;
 	try
 	{
 		Bureaucrat d("Diego", 2);
 		std::cout << d << std::endl;
 
 		d.incrementGrade();
-		std::cout << "Após increment: " << d << std::endl;
+		std::cout << "After increment: " << d << std::endl;
 
-		d.incrementGrade(); // deve lançar exceção
+		d.decrementGrade();
+		std::cout << "After decrement: " << d << std::endl;
 	}
 	catch (std::exception &e)
 	{
 		std::cout << e.what() << std::endl;
 	}
 
-	std::cout << "\n===== Teste 5: operador de atribuição =====" << std::endl;
+	std::cout << "\n===== Test 5: assignment operator =====" << std::endl;
 	try
 	{
 		Bureaucrat e("Eva", 10);
 		Bureaucrat f("Frank", 100);
 
-		std::cout << "Antes:" << std::endl;
+		std::cout << "Before:" << std::endl;
 		std::cout << e << std::endl;
 		std::cout << f << std::endl;
 
 		f = e;
 
-		std::cout << "Depois:" << std::endl;
+		std::cout << "After:" << std::endl;
 		std::cout << e << std::endl;
 		std::cout << f << std::endl;
 	}
@@ -86,3 +87,4 @@ int main()
 
 	return 0;
 }
+
