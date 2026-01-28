@@ -6,11 +6,12 @@
 /*   By: dteruya <dteruya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 16:01:52 by dteruya           #+#    #+#             */
-/*   Updated: 2026/01/23 17:32:46 by dteruya          ###   ########.fr       */
+/*   Updated: 2026/01/26 19:38:50 by dteruya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 Bureaucrat::Bureaucrat(const std::string &_name, int _grade) : name(_name)
 {
@@ -83,4 +84,17 @@ std::ostream& operator<<(std::ostream& os, const Bureaucrat& b)
 {
 	os << b.getName() << ", bureaucrat grade " << b.getGrade();
 	return os;
+}
+
+void Bureaucrat::signForm(Form& x)
+{
+	try
+	{
+		x.beSigned(*this);
+		std::cout << this->name << " signed " << x.getName() << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << this->name << " couldn’t sign " << x.getName() << " because " << e.what() << std::endl;
+	}
 }

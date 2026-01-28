@@ -6,7 +6,7 @@
 /*   By: dteruya <dteruya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 18:39:18 by dteruya           #+#    #+#             */
-/*   Updated: 2026/01/27 19:52:03 by dteruya          ###   ########.fr       */
+/*   Updated: 2026/01/27 21:54:55 by dteruya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ AForm *Intern::makePresidential(const std::string &target)
 }
 
 
-AForm *Intern::makeForm(const std::string &name, const std::string &target)
+AForm *Intern::makeForm(const std::string &formName, const std::string &target)
 {
 	std::string forms[] = {"shrubbery creation",
 	"robotomy request",
@@ -62,7 +62,7 @@ AForm *Intern::makeForm(const std::string &name, const std::string &target)
 	int i = 0;
 	while (i < 3)
 	{
-		if(forms[i] == name)
+		if(forms[i] == formName)
 			break;
 		i++;
 	}
@@ -74,10 +74,5 @@ AForm *Intern::makeForm(const std::string &name, const std::string &target)
 		default:
 			std::cout << "Intern cannot create bacause it does not exist." << std::endl;
 	}
-	throw Intern::FormNotFoundException();
-}
-
-const char *Intern::FormNotFoundException::what() const throw()
-{
-	return "Intern error: Form name not found.";
+	return NULL;
 }
